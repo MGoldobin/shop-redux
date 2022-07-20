@@ -1,16 +1,19 @@
-import axios from 'axios'
 import React, { useEffect } from 'react'
-import { useActions } from '../hooks/useActions'
-import { useTypesSelector } from '../hooks/useTypesSelector'
+import styled from 'styled-components'
+
+import { useActions } from '../../hooks/useActions'
+import { useTypesSelector } from '../../hooks/useTypesSelector'
+
+const StyledName = styled.p`
+	color: ${props => props.theme.color};
+`
 
 const UserList: React.FC = () => {
 	const { users, loading, error } = useTypesSelector(state => state.users)
 	const { fetchUsers } = useActions()
 
 	useEffect(() => {
-		fetch('https://fakestoreapi.com/products')
-            .then(res=>res.json())
-            .then(json=>console.log(json))
+		fetchUsers()
 	}, [])
 
 	if (loading) {
@@ -24,7 +27,7 @@ const UserList: React.FC = () => {
 	return (
 		<div>
 			{
-				users.map(user => <p key={user.id}>{user.name}</p>)
+				users.map(user => <StyledName key={user.id}>{user.name}</StyledName>)
 			}
 		</div>
 	)
