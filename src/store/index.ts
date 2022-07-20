@@ -3,9 +3,11 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from "redux-thunk"
 
 import { userReducer } from './reducers/userReducer'
+import { themeReducer } from "./reducers/themeReducer"
 
 const rootReducer = combineReducers({
-	users: userReducer
+	users: userReducer,
+	theme: themeReducer
 })
 
 export type RootState = ReturnType<typeof rootReducer>
