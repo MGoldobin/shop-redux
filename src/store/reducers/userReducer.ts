@@ -1,4 +1,4 @@
-import { UserAction, UserState, UserActionTypes } from '../../types/user'
+import { UserAction, UserState, UserActionTypes } from '../../types/index'
 
 const initialState: UserState = {
 	users: [],
