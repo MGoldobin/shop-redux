@@ -1,7 +1,7 @@
-import * as UserActionCreators from './user'
+import * as ProductActionCreators from './product'
 import * as ThemeActionCreators from './theme'
 
 export const ActionCreators = {
-	...UserActionCreators,
+	...ProductActionCreators,
 	...ThemeActionCreators
 }

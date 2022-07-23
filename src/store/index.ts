@@ -2,11 +2,11 @@ import { combineReducers, createStore, applyMiddleware } from "redux"
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from "redux-thunk"
 
-import { userReducer } from './reducers/userReducer'
+import { productReducer } from './reducers/productReducer'
 import { themeReducer } from "./reducers/themeReducer"
 
 const rootReducer = combineReducers({
-	users: userReducer,
+	products: productReducer,
 	theme: themeReducer
 })
 
