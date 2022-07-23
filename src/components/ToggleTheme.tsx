@@ -34,6 +34,7 @@ const Button = styled.button`
 	&:disabled{
 		background-color: ${props => props.theme.toggle.backgroundColorDisabled};
 		opacity: 1;
+		cursor: default;
 	}
 `
 
