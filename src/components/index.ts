@@ -1,2 +1,6 @@
 export * from './ToggleTheme'
 export * from './CustomThemeProvider'
+export * from './Header'
+export * from './Content'
+export * from './Footer'
+export * from './ProductCard'
