@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import ProductList from './ProductList'
 
-export const MainPage = () => {
+export const MainPage: React.FC = () => {
 	return (
 		<>
 			<ProductList />

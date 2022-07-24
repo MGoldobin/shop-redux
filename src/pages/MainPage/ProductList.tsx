@@ -14,7 +14,7 @@ const StyledProductList = styled.div`
 	gap: 10px;
 `
 
-const ProductList = () => {
+const ProductList: React.FC = () => {
 	const { products, loading, error } = useTypesSelector(state => state.products)
 	const { fetchProducts } = useActions()
 

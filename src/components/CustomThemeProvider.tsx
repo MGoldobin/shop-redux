@@ -8,7 +8,7 @@ interface CustomThemeProviderProps {
 	children?: React.ReactNode
 }
 
-export const CustomThemeProvider = (props:CustomThemeProviderProps) => {
+export const CustomThemeProvider: React.FC<CustomThemeProviderProps> = (props) => {
 	const { isLight } = useTypesSelector(state => state.theme)
 
 	return (

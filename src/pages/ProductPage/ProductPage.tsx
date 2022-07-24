@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
 
-export const ProductPage = () => {
+export const ProductPage: React.FC = () => {
 	const { productId }  = useParams()
 
 	return (

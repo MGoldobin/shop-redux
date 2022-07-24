@@ -13,7 +13,7 @@ const StyledLayout = styled.div`
 	flex-direction: column;
 `
 
-export const Layout = () => {
+export const Layout: React.FC = () => {
 	return (
 		<StyledLayout>
 			<Header />
