@@ -10,8 +10,16 @@ const StyledProductList = styled.div`
 	display: grid;
 	justify-content: center;
 	align-items: center;
-	grid-template-columns: repeat(4, 1fr);
+	grid-template-columns: repeat(1, 1fr);
 	gap: 10px;
+
+	@media (min-width: 1400px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+	@media (min-width: 930px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `
 
 const ProductList: React.FC = () => {
