@@ -1,7 +1,10 @@
 export type Theme = {
 	color: string,
+	errorColor: string,
 	backgroundColor: string,
+	errorBackgroundColor: string,
 	borderColor: string,
+	errorBorderColor: string,
 	varColors: {
 		
 	},
