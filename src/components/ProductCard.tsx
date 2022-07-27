@@ -89,13 +89,19 @@ const BuyButton = styled.button`
 export const ProductCard: React.FC<ProductCardProps> = ({product}) => {
 	return (
 		<StyledProductCard>
-				<Image src={product.image} />
+				<Image src={product.images[0]} />
 				<Info>
 					<Category>{product.category}</Category>
 					<Title to={`product/${product.id}`}>{product.title}</Title>
 					<TechList>
 						{
-							product.description.split(';').slice(0, 3).map(char => <li>{char}</li>)
+							Boolean(product.characteristics.length)
+							? <>
+								<li>{product.characteristics[0]}</li>
+								<li>{product.characteristics[1]}</li>
+								<li>{product.characteristics[2]}</li>
+							</>
+							: []
 						}
 						<NavLink to={`product/${product.id}`}>Подробнее...</NavLink>
 					</TechList>
