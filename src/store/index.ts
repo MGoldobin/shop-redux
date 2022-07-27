@@ -1,13 +1,13 @@
-import { combineReducers, createStore, applyMiddleware } from "redux"
+import { combineReducers, createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import thunk from "redux-thunk"
+import thunk from 'redux-thunk'
 
-import { productReducer } from './reducers/productReducer'
-import { themeReducer } from "./reducers/themeReducer"
+import { productReducer, themeReducer, userReducer } from './reducers/index'
 
 const rootReducer = combineReducers({
 	products: productReducer,
-	theme: themeReducer
+	theme: themeReducer,
+	user: userReducer
 })
 
 export type RootState = ReturnType<typeof rootReducer>
