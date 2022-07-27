@@ -26,7 +26,8 @@ export interface Product {
 	price: number,
 	category: string,
 	description: string,
-	image: string,
+	characteristics: string[],
+	images: string[],
 	rating: [
 		avg: number, 
 		count: number
