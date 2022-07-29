@@ -1,6 +1,6 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
-import { useTypesSelector } from '../hooks/useTypesSelector'
+import { useTypesSelector } from '../utils/hooks/useTypesSelector'
 
 import { themeLight, themeDark } from '../vendor/theme/theme'
 

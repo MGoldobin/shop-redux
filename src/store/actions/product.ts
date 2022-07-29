@@ -1,8 +1,8 @@
-import { Product, ProductAction, ProductActionTypes } from "../../types/product"
+import { Product, ProductAction, ProductActionTypes } from "../../utils/types/product"
 import { Dispatch } from "redux"
 import axios from "axios"
 
-import { fetchFakeData } from '../../vendor/DATA'
+import { fetchFakeData } from '../../utils/helpers/DATA'
 
 export const fetchProducts = () => {
     return async (dispatch: Dispatch<ProductAction>) => {

@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { useActions } from '../hooks/useActions'
-import { useTypesSelector } from '../hooks/useTypesSelector'
+import { useActions } from '../utils/hooks/useActions'
+import { useTypesSelector } from '../utils/hooks/useTypesSelector'
 
 const ToggleForm = styled.div`
 `

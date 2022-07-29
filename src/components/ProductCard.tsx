@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { Product } from '../types/index'
+import { Product } from '../utils/types/index'
 
 interface ProductCardProps {
 	product: Product

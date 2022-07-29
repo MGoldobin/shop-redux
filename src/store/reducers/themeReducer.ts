@@ -1,4 +1,4 @@
-import { ThemeAction, ThemeState, ThemeActionTypes } from '../../types/index'
+import { ThemeAction, ThemeState, ThemeActionTypes } from '../../utils/types/index'
 
 const initialState: ThemeState = {
 	isLight: !localStorage.getItem('isLight') ? true : (localStorage.getItem('isLight') === "true" ? true : false)

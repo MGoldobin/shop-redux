@@ -3,7 +3,7 @@ import { FirebaseError } from '@firebase/util'
 import { getFirestore, collection, addDoc } from 'firebase/firestore/lite'
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 
-import { SignUpFormValues, SignInFormValues } from './pages/AuthPage/AuthPage'
+import { SignUpFormValues, SignInFormValues } from './utils/types/index'
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -33,13 +33,6 @@ export const logInWithEmailAndPassword = async (user: SignInFormValues) => {
 			}
 		}
 	}
-}
-
-export type User = {
-	name: string,
-	company: string,
-	city: string,
-	email: string
 }
 
 export const registrationWithEmailAndPassword = async (user: SignUpFormValues) => {

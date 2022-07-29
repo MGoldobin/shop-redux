@@ -1,4 +1,4 @@
-import { UserState, UserAction, UserActionTypes } from '../../types/index'
+import { UserState, UserAction, UserActionTypes } from '../../utils/types/index'
 
 const initialState: UserState = {
 	isLogin: false,

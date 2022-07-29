@@ -3,8 +3,8 @@ import styled from 'styled-components'
 
 import { ProductCard } from '../../components/index'
 
-import { useActions } from '../../hooks/useActions'
-import { useTypesSelector } from '../../hooks/useTypesSelector'
+import { useActions } from '../../utils/hooks/useActions'
+import { useTypesSelector } from '../../utils/hooks/useTypesSelector'
 
 const StyledProductList = styled.div`
 	display: grid;

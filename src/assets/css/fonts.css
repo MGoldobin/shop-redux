@@ -1,0 +1,5 @@
+@font-face {
+	font-family: "SovMod";
+	src: url("../fonts/sovmod.ttf") format("truetype"),
+			 url("../fonts/sovmod.otf") format("opentype");
+}
