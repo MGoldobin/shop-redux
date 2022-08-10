@@ -37,7 +37,14 @@ interface InputBlockProps {
 export const InputBlock: React.FC<InputBlockProps> = ({ inputId, inputPlaceholder, validateFunction, errors, touched, type }) => {
 	return (
 		<div>
-			<StyledField type={type} $iserror={errors && touched} id={inputId} name={inputId} placeholder={inputPlaceholder} validate={validateFunction}/>
+			<StyledField
+				type={type}
+				$iserror={errors && touched}
+				id={inputId}
+				name={inputId}
+				placeholder={inputPlaceholder}
+				validate={validateFunction}
+			/>
 			{ errors && touched && <ErrorLabel>{errors}</ErrorLabel>}
 		</div>
 	)
