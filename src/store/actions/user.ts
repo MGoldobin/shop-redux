@@ -1,11 +1,11 @@
 import { Dispatch } from 'redux'
 import { FirebaseError } from '@firebase/util'
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, signOut } from 'firebase/auth'
 
 import { SignInFormValues, SignUpFormValues } from '../../utils/types/index'
 import { auth } from '../../utils/firebase/index'
 import { UserActionTypes, UserAction } from '../../utils/types/index'
-import { setCookie } from '../../utils/helpers/cookie'
+import { deleteCookie, setCookie } from '../../utils/helpers/cookie'
 import { AUTH_COOKIE, AUTH_USER_EMAIL_COOKIE, AUTH_USER_NAME_COOKIE } from '../../utils/constants/cookie'
 
 export const SignInWithEmailAndPassword = (userForm: SignInFormValues, setErrorSignIn: React.Dispatch<React.SetStateAction<string | null>>) => {
@@ -19,7 +19,7 @@ export const SignInWithEmailAndPassword = (userForm: SignInFormValues, setErrorS
       dispatch({
 				type: UserActionTypes.LOG_IN,
 				payload: {
-					uid: await user.getIdToken(),
+					uid: user.uid,
 					name: user.displayName || user.email,
 					email: user.email
 				}
@@ -53,7 +53,7 @@ export const SignUpWithEmailAndPassword = (userForm: SignUpFormValues, setErrorS
 			dispatch({
 				type: UserActionTypes.LOG_IN,
 				payload: {
-					uid: await user.getIdToken(),
+					uid: user.uid,
 					name: user.displayName,
 					email: user.email
 				}
@@ -64,5 +64,13 @@ export const SignUpWithEmailAndPassword = (userForm: SignUpFormValues, setErrorS
 				console.log(error.code)
 			}
 		}
+	}
+}
+
+export const LogOut = () => {
+	return async (dispatch: Dispatch<UserAction>) => {
+		dispatch({type: UserActionTypes.LOG_OUT})
+		signOut(auth)
+		deleteCookie(AUTH_COOKIE)
 	}
 }
