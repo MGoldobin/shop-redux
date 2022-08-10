@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-import { Footer } from '../../components'
 import { SignInForm } from './components/SignInForm'
 import { SignUpForm } from './components/SignUpForm'
 
@@ -10,8 +9,7 @@ const StyledAuthPage = styled.div`
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	width: 100vw;
-	height: 100vh;
+	height: 70vh;
 	background-color: ${props => props.theme.backgroundColor};
 `
 
@@ -30,9 +28,8 @@ export const AuthPage: React.FC = () => {
 	return (
 		<StyledAuthPage>
 			{ !isSignUp && <SignInForm />}
-			{ isSignUp && <SignUpForm /> /* доделать переход на другую страницу после login'a и регистрации*/} 
+			{ isSignUp && <SignUpForm />} 
 			<Button onClick={() => setIsSignUp(prev => !prev)}>{isSignUp ? 'Перейти к входу' : 'Перейти к регистрации'}</Button>
-			<Footer />
 		</StyledAuthPage>
 	)
 }

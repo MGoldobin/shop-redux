@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Formik, Form, FormikHelpers } from 'formik'
+import { useNavigate } from 'react-router-dom'
 
 import { InputBlock } from './InputBlock'
 
-import { registrationWithEmailAndPassword } from '../../../firebase'
-import { validateName, validateEmail, validatePassword, errorTranslate } from '../../../vendor/functions/validateForm'
-import { SignUpFormValues } from '../../../utils/types/index'
+import { validateName, validateEmail, validatePassword, errorTranslate } from '../../../utils/helpers/functions/validateForm'
+import { SignUpFormValues, RequestDataType } from '../../../utils/types/index'
+import { useActions } from '../../../utils/hooks/useActions'
 
 const StyledForm = styled(Form)`
 	display: flex;
@@ -15,7 +16,7 @@ const StyledForm = styled(Form)`
 	flex-direction: column;
 	gap: 20px;
 	width: 300px;
-	margin: 15vh 0 0 0;
+	margin: 10vh 0 0 0;
 `
 
 const Title = styled.h1`
@@ -39,15 +40,16 @@ const Button = styled.button`
 
 export const SignUpForm: React.FC = () => {
 	const [isLoading, setIsLoading] = useState(false)
-	const [errorSignUp, setErrorSignUp] = useState<string | undefined>('')
+	const [errorSignUp, setErrorSignUp] = useState<string | null>('')
 
+	const { SignUpWithEmailAndPassword } = useActions()
+	const navigate = useNavigate()
+	
 	const handleSubmit = async (values: SignUpFormValues, actions: FormikHelpers<SignUpFormValues>) => {
 		setIsLoading(true)
-		const result = await registrationWithEmailAndPassword(values)
-		setErrorSignUp(result && result.status === 'success' ? '' : result&&result.code)
-		actions.setSubmitting(false)
-		/*actions.resetForm()*/
+		SignUpWithEmailAndPassword(values, setErrorSignUp)
 		setIsLoading(false)
+		//errorSignUp && navigate('Profile') 
 	}
 
 	const initialValues: SignUpFormValues = { 

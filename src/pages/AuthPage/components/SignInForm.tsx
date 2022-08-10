@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Formik, Form, FormikHelpers } from 'formik'
+import { useNavigate } from 'react-router-dom'
 
 import { InputBlock } from './InputBlock'
 
-import { logInWithEmailAndPassword } from '../../../firebase'
 import { validateEmail, validatePassword, errorTranslate } from '../../../utils/helpers/functions/validateForm'
 import { SignInFormValues } from '../../../utils/types/index'
+import { useActions } from '../../../utils/hooks/useActions'
 
 const StyledForm = styled(Form)`
 	display: flex;
@@ -15,7 +16,7 @@ const StyledForm = styled(Form)`
 	flex-direction: column;
 	gap: 20px;
 	width: 300px;
-	margin: 15vh 0 0 0;
+	margin: 10vh 0 0 0;
 `
 
 const Title = styled.h1`
@@ -39,20 +40,21 @@ const Button = styled.button`
 
 export const SignInForm: React.FC = () => {
 	const [isLoading, setIsLoading] = useState(false)
-	const [errorSignIn, setErrorSignIn] = useState<string | undefined>('')
+	const [errorSignIn, setErrorSignIn] = useState<string | null>(null)
+
+	const { SignInWithEmailAndPassword } = useActions()
+	const navigate = useNavigate()
 
 	const initialValues: SignInFormValues = {
 		email: '',
 		password: ''
 	}
 
-	const handleSubmit = async (values: SignInFormValues, actions: FormikHelpers<SignInFormValues>) => {
+	const handleSubmit = (values: SignInFormValues, actions: FormikHelpers<SignInFormValues>) => {
 		setIsLoading(true)
-		const result = await logInWithEmailAndPassword(values)
-		setErrorSignIn(result && result.status === 'success' ? '' : result&&result.code)
-		actions.setSubmitting(false)
-		/*actions.resetForm()*/
+		SignInWithEmailAndPassword(values, setErrorSignIn)
 		setIsLoading(false)
+		//!errorSignIn && navigate('/Cart')
 	}
 
 	return (
@@ -82,7 +84,7 @@ export const SignInForm: React.FC = () => {
 								touched={touched.password}
 							/>
 							
-							<Button disabled={isLoading || !!errors.email || !!errors.password} type="submit">Войти</Button>
+							<Button disabled={ isLoading || !!errors.email || !!errors.password} type="submit">Войти</Button>
 							{ errorSignIn ? <ErrorLabel>{errorTranslate(errorSignIn)}</ErrorLabel> : null }
 						</StyledForm>
 					)}
