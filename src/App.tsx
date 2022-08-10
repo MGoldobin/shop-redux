@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import { Layout, MainPage, CartPage, ProductPage, PageNotFound, AuthPage } from './pages/index'
+import { Layout, MainPage, CartPage, ProductPage, PageNotFound, AuthPage, ProfilePage } from './pages/index'
 import { CustomThemeProvider } from './components/index'
 
 import { useAuth } from './utils/hooks/useAuth'
@@ -15,7 +15,7 @@ export const NotAuthApp = () => (
 export const AuthApp = () => (
 	<>
 		<Route path='Cart' element={<CartPage />}/>
-		<Route path='Profile' element={<CartPage />}/>
+		<Route path='Profile' element={<ProfilePage />}/>
 	</>
 )
 
