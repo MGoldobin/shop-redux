@@ -49,7 +49,7 @@ export const SignUpForm: React.FC = () => {
 		setIsLoading(true)
 		SignUpWithEmailAndPassword(values, setErrorSignUp)
 		setIsLoading(false)
-		//errorSignUp && navigate('Profile') 
+		if (!errorSignUp) navigate('/Profile')
 	}
 
 	const initialValues: SignUpFormValues = { 

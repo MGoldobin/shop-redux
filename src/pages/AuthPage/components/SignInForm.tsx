@@ -54,7 +54,7 @@ export const SignInForm: React.FC = () => {
 		setIsLoading(true)
 		SignInWithEmailAndPassword(values, setErrorSignIn)
 		setIsLoading(false)
-		//!errorSignIn && navigate('/Cart')
+		if (!errorSignIn) navigate('/Profile')
 	}
 
 	return (
