@@ -1,11 +1,11 @@
-import { AUTH_COOKIE, AUTH_USER_NAME_COOKIE } from '../../utils/constants/cookie'
+import { AUTH_COOKIE, AUTH_USER_NAME_COOKIE, AUTH_USER_EMAIL_COOKIE } from '../../utils/constants/cookie'
 import { getCookie } from '../../utils/helpers/cookie'
 import { UserState, UserAction, UserActionTypes } from '../../utils/types/index'
 
 const initialState: UserState = {
 	uid: getCookie(AUTH_COOKIE) || null,
 	name: getCookie(AUTH_USER_NAME_COOKIE) || null,
-	email: getCookie(AUTH_USER_NAME_COOKIE) || null
+	email: getCookie(AUTH_USER_EMAIL_COOKIE) || null
 }
 
 export const userReducer = (state = initialState, action: UserAction): UserState => {
