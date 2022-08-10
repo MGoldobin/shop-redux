@@ -36,9 +36,11 @@ export const errorTranslate = (value : string) => {
 			return 'Данный email уже используется'
 		case 'auth/user-not-found':
 			return 'Пользователь с таким email не найден'
-			case 'auth/wrong-password':
-				return 'Неправильный email или пароль'
-			default: 
+		case 'auth/wrong-password':
+			return 'Неправильный email или пароль'
+		case 'auth/too-many-requests':
+			return 'Много попыток, попробуйте войти позже'
+		default: 
 			return value
 	}
 }
