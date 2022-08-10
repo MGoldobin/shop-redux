@@ -2,7 +2,7 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import { useTypesSelector } from '../utils/hooks/useTypesSelector'
 
-import { themeLight, themeDark } from '../vendor/theme/theme'
+import { themeLight, themeDark } from '../utils/helpers/theme/theme'
 
 interface CustomThemeProviderProps {
 	children?: React.ReactNode
