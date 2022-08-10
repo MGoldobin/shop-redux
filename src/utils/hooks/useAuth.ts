@@ -1,10 +1,10 @@
 import { useTypesSelector } from './useTypesSelector'
 
 export const useAuth = () => {
-	const { isLogin, ...userStore } = useTypesSelector(state => state.user)
+	const { ...userStore } = useTypesSelector(state => state.user)
 
 	return {
-		isLogin,
+		isLogin: !!userStore.uid,
 		user: {
 			...userStore
 		}
