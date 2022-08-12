@@ -52,6 +52,30 @@ export const DATA: {status: number, data: Product[]} = {
 			],
 			rating: [5, 919]
 		},
+		{
+			id: 3,
+			title: 'Apple iPhone 11 Pro Max',
+			description: '',
+			characteristics: [
+				'Экран	6.5" (2688×1242) Super Retina XDR (OLED)',
+				'Встроенная память	256 ГБ',
+				'Оперативная память	4 ГБ',
+				'Тройная камера	12 МП, 12 МП, 12 МП',
+				'Аккумулятор	3969 мА·ч',
+				'Процессор Apple A13 Bionic',
+				'SIM-карты 	1 (nano SIM) + eSIM',
+				'Операционная система	iOS 13',
+				'Беспроводные интерфейсы Bluetooth, Wi-Fi, зарядка, NFC, Apple Pay',
+				'Стандарт связи	3G, 4G LTE',
+				'Вес	226 г'
+			],
+			price: 75000,
+			category: 'Smartphone',
+			images: [
+				'https://cdn.svyaznoy.ru/upload/iblock/4ca/iphone_11_pro_sg_2.jpg',
+			],
+			rating: [9, 666]
+		},
 	]
 }
 
