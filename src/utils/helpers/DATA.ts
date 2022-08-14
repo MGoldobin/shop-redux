@@ -76,6 +76,30 @@ export const DATA: {status: number, data: Product[]} = {
 			],
 			rating: [9, 666]
 		},
+		{
+			id: 4,
+			title: 'Apple iPhone 13 Pro Max',
+			description: '',
+			characteristics: [
+				'Экран	6.7" (2778×1284) Super Retina XDR (OLED)',
+				'Встроенная память	256 ГБ',
+				'Оперативная память	6 ГБ',
+				'Тройная камера	12 МП, 12 МП, 12 МП',
+				'Аккумулятор	3969 мА·ч',
+				'Процессор Apple A15 Bionic',
+				'SIM-карты 	1 (nano SIM) + eSIM',
+				'Операционная система	iOS 13',
+				'Беспроводные интерфейсы Bluetooth, Wi-Fi, зарядка, NFC, Apple Pay',
+				'Стандарт связи	3G, 4G LTE',
+				'Вес	226 г'
+			],
+			price: 138000,
+			category: 'Smartphone',
+			images: [
+				'https://cdn.svyaznoy.ru/upload/iblock/24e/iphone_13_pro_max_q421_sierra_blue_pdp_image_position-1a__ru-ru.jpg',
+			],
+			rating: [7, 777]
+		},
 	]
 }
 
